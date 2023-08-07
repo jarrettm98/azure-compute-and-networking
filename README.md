@@ -29,23 +29,23 @@ First, in Azure, create a Resource Group. (Recommended to keep virtual machines 
 
 https://github.com/jarrettm98/azure-crash-course
 
-Next, create a Virtual Machine(VM) with Azure. Assign the VM to the Resource Group previously created. Name the VM and keep track of the region it is located in. (This will be important when creating the other Virtual machine) Under "Image" use the Windows 10 Operating system. For the size, use any size. (Recommend 2 vcpus) Going down a bit insert a Admin user and password. (Important to remember while logging into the VM) Lastly check the box under licensing then "Review + create." Click create again.
+Next, create a Virtual Machine(VM) with Azure. Now, Assign the VM to the Resource Group previously created. Name the VM and keep track of the region it is located in. (This will be important when creating the other Virtual machine) Under "Image" use the Windows 10 Operating system. For the size, use any size. (Recommend 2 vcpus) Going down the page a bit, insert an Administrator user and password. (Important to remember while logging into the VM) Lastly check the box under licensing then click "Review + create." Click create again.
 
 ![image](https://github.com/jarrettm98/azure-compute-and-networking/assets/140662793/cac8df60-b5c5-4fc9-813e-5b0d3c923402)
 
 ![image](https://github.com/jarrettm98/azure-compute-and-networking/assets/140662793/b51aa6a8-538a-4ede-845e-aa29016920cc)
 
-Now, create the second VM. Assign it to the same Resource Group as the first one. Give it a name. Make sure the region is the same as the first VM. For the image of this VM, use the Ubuntu Server. Give it any size (Again recommend 2 vcpus) Then for "Authentication type", choose password, then input admin user and password. (Can be the same as the ones for the first VM) Now, click on "Next: Disks", then click on "Next: Network." For the Virtual Network it should be set to the same network as the first VM, if not, set it to that one. Now, click Review + create, then click create again.
+Now, create the second VM. Assign it to the same Resource Group as the first one. Give it a name. Make sure the region is the same as the first VM. For the image of this VM, use the Ubuntu Server. Give it any size (Again recommend 2 vcpus) Then for "Authentication type", choose "Password", then input admin user and password. (Can be the same as the ones for the first VM) Now, click on "Next: Disks", then click on "Next: Network." For the Virtual Network it should be set to the same network as the first VM, if not, set it to that one. Now, click Review + create, then click create again.
 
 ![image](https://github.com/jarrettm98/azure-compute-and-networking/assets/140662793/189858c5-a6ee-40df-9f1b-fa4334ed4634)
 
 ![image](https://github.com/jarrettm98/azure-compute-and-networking/assets/140662793/a1460a64-e789-4938-91a5-f00c9a05e7c3)
 
-Now the ip address to connect to the first VM. Search for and go to Virtual Machines, then click on the first VM. Copy the Public IP address.
+Now, get the IP address to connect to the first VM. Search for and go to "Virtual Machines", then click on the first VM. Copy the Public IP address.
 
 ![image](https://github.com/jarrettm98/azure-compute-and-networking/assets/140662793/e3b6cb97-788b-4677-a9e1-547eda7ea462)
 
-Next, open Remote Desktop Connection by searching for in the Windows Start Menu. Using the ip address, user, and password of the first VM, remote into the VM. 
+Next, open Remote Desktop Connection by searching for it in the Windows Start Menu. Using the IP address, user, and password of the first VM, remote into the VM. 
 
 ![image](https://github.com/jarrettm98/azure-compute-and-networking/assets/140662793/44ca24a4-a20d-4883-af6b-2dc5d1c10b9f)
 
@@ -61,7 +61,7 @@ Next, go to your browser and download and install Wireshark. Go with default set
 
 ![image](https://github.com/jarrettm98/azure-compute-and-networking/assets/140662793/88732a7f-c8b5-4c32-a8f1-e634485f0d3a)
 
-After Wireshark is installed, search for Wireshark in the start menu and launch it. When it is launched, click Ethernet, then click the shark fin symbol in the top left.
+After Wireshark is installed, search for Wireshark in the start menu and launch it. When it is launched, click "Ethernet", then click the shark fin symbol in the top left.
 
 ![image](https://github.com/jarrettm98/azure-compute-and-networking/assets/140662793/b821b636-f259-4678-87bb-0c231f68eeb0)
 
@@ -69,7 +69,7 @@ There will be a lot of traffic going through.
 
 ![image](https://github.com/jarrettm98/azure-compute-and-networking/assets/140662793/47e46c4b-6c96-49e0-9c10-ee0ebbd007e9)
 
-Now, in the filter bar, type "ICMP" to filter ICMP traffic. This will be the traffic that will go from the VM to the server and back. Nothing will be showing until it is pinged through PowerShell or Command prompt.
+Now, in the filter bar, type "ICMP" to filter ICMP traffic, then click on the shark fin icon again. This will be the traffic that will go from the VM to the server and back. Nothing will be showing until it is pinged through PowerShell or Command prompt.
 
 ![image](https://github.com/jarrettm98/azure-compute-and-networking/assets/140662793/7048a5b3-a323-4808-a49c-b836dc6990b4)
 
@@ -95,11 +95,13 @@ Once, the rule has been created, Go back to the Virtual Machine and see that the
 
 ![image](https://github.com/jarrettm98/azure-compute-and-networking/assets/140662793/0b8af4a8-cf9b-4ef1-be40-832d13abb7f4)
 
-Go back to the rule created and change the Access to Allow. Now, see that the traffic is sending again to the server.
+Go back to the rule created and change the Access to "Allow". Now, see that the traffic is sending again to the server.
 
 ![image](https://github.com/jarrettm98/azure-compute-and-networking/assets/140662793/62d4af0b-17ad-44f8-ad22-4cc685cb8aaa)
 
-In Wireshark, filter the traffic by "SSH." Now, in PowerShell, type ssh, then the username + @ + the Private IP address of the server. Example below:
+In Wireshark, filter the traffic by "SSH." and click the shark fin icon. Now, in PowerShell, type ssh, then the username + @ + the Private IP address of the server. (In my case it goes as follows: ssh jmeier98@10.0.0.5)
+
+Example below:
 
 ![image](https://github.com/jarrettm98/azure-compute-and-networking/assets/140662793/a43bb00d-dd21-4a48-a270-bb15a42ee6af)
 
